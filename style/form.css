@@ -1,0 +1,237 @@
+.login-container {
+    max-width: 500px;
+    margin: 100px auto;
+    padding: 40px;
+    background: var(--red);
+    border-radius: 15px;
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+label {
+    color: var(--cream);
+    font-size: var(--font-size-md);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="tel"] {
+    width: 100%;
+    padding: 15px 20px;
+    border: 3px solid var(--cream);
+    border-radius: 10px;
+    font-size: var(--font-size-md);
+    background: transparent;
+    color: var(--cream);
+    transition: all 0.3s ease;
+}
+
+input:focus {
+    outline: none;
+    background: rgba(255, 253, 208, 0.1);
+    box-shadow: 0 0 10px rgba(255, 253, 208, 0.3);
+}
+
+input::placeholder {
+    color: rgba(255, 253, 208, 0.7);
+}
+
+.password-container {
+    position: relative;
+}
+
+.toggle-password {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: var(--cream);
+    cursor: pointer;
+    font-size: 14px;
+    text-transform: uppercase;
+    font-weight: 600;
+    padding: 5px 10px;
+}
+
+.form-check {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 20px 0;
+    padding: 10px;
+    background: rgba(255, 253, 208, 0.1);
+    border-radius: 8px;
+    border: 2px solid var(--cream);
+}
+
+.form-check input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    accent-color: var(--cream);
+}
+
+.form-check label {
+    font-size: var(--font-size-sm);
+    font-weight: 600;
+    text-transform: none;
+    letter-spacing: normal;
+    cursor: pointer;
+    color: var(--cream);
+    flex: 1;
+}
+
+.invalid-feedback {
+    color: #FFB6C1;
+    font-size: var(--font-size-sm);
+    margin-top: 5px;
+    padding-left: 30px;
+    display: none;
+}
+
+.error-message,
+.success-message {
+    padding: 10px 15px;
+    border-radius: 5px;
+    text-align: center;
+    margin-bottom: 20px;
+    border: 1px solid;
+}
+
+.error-message {
+    background: rgba(255, 255, 255, 0.1);
+    color: #FFB6C1;
+    border-color: #FFB6C1;
+}
+
+.success-message {
+    background: rgba(144, 238, 144, 0.1);
+    color: #90EE90;
+    border-color: #90EE90;
+}
+
+.submit-btn {
+    background: var(--cream);
+    color: var(--red);
+    border: 3px solid var(--cream);
+    padding: 18px 40px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: var(--font-size-md);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.submit-btn:hover {
+    background: transparent;
+    color: var(--cream);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.submit-btn:active {
+    transform: translateY(0);
+}
+
+.register-link {
+    text-align: center;
+    margin-top: 25px;
+    color: var(--cream);
+    font-size: var(--font-size-sm);
+}
+
+.register-link a {
+    color: var(--cream);
+    text-decoration: underline;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.register-link a:hover {
+    text-decoration: none;
+}
+
+.form-title {
+    color: var(--cream);
+    font-size: 32px;
+    text-align: center;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+@media (max-width: 768px) {
+    .login-container {
+        padding: 30px 20px;
+    }
+
+    .form-title {
+        font-size: 28px;
+    }
+
+    .form-inputs,
+    .submit-btn,
+    .form-check label {
+        font-size: var(--font-size-sm);
+    }
+
+    input[type="text"],
+    input[type="password"],
+    input[type="email"],
+    input[type="tel"] {
+        padding: 12px 15px;
+    }
+
+    .submit-btn {
+        padding: 15px 30px;
+    }
+}
+
+@media (max-width: 465px) {
+    .login-container {
+        padding: 20px 15px;
+    }
+
+    .form-title {
+        font-size: 24px;
+        margin-bottom: 20px;
+    }
+
+    label {
+        font-size: var(--font-size-sm);
+    }
+
+    .form-check {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+
+    .form-check input[type="checkbox"] {
+        align-self: flex-start;
+    }
+}
+
+
+
+

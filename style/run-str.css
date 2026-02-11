@@ -1,0 +1,36 @@
+/* Анимация ticker */
+@keyframes ticker {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-20%);
+  }
+}
+
+.ticker {
+  border-top: 2px solid var(--red);
+  border-bottom: 2px solid var(--red);
+  border-left: none;
+  border-right: none;
+  color: var(--red);
+  font-size: var(--font-size-lg);
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.ticker__in {
+  display: flex;
+  width: fit-content;
+  animation: ticker 10s linear infinite;
+  -webkit-transform-style: preserve-3d;
+  /* для Safari */
+}
+
+.ticker__item {
+  padding: 0.5em 3.5em;
+  white-space: nowrap;
+  -webkit-backface-visibility: hidden;
+  /* для Safari */
+}

@@ -1,0 +1,201 @@
+.burger-checkbox {
+    position: absolute;
+    visibility: hidden;
+}
+
+.burger {
+    position: fixed;
+    z-index: 1000;
+    cursor: pointer;
+    display: block;
+    border: none;
+    background: transparent;
+    width: 40px;
+    height: 26px;
+    margin-top: 30px;
+    top: 20px;
+}
+
+.burger::before,
+.burger::after {
+    content: '';
+    left: 0;
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 4px;
+    border-radius: 10px;
+    background: var(--red);
+    transition: box-shadow .3s .15s, top .3s .15s, transform .3s;
+}
+
+.burger::before {
+    top: 0;
+    box-shadow: 0 11px 0 var(--red);
+}
+
+.burger::after {
+    bottom: 0;
+}
+
+
+.burger-checkbox:checked+.burger::before {
+    top: 11px;
+    transform: rotate(45deg);
+    box-shadow: 0 6px 0 rgba(0, 0, 0, 0);
+    transition: box-shadow .15s, top .3s, transform .3s .15s;
+}
+
+.burger-checkbox:checked+.burger::after {
+    bottom: 11px;
+    transform: rotate(-45deg);
+    transition: bottom .3s, transform .3s .15s;
+}
+
+.menu-list {
+    display: flex;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100vw;
+    /* Используем viewport width вместо 100% */
+    height: 90vh;
+    transform: translateY(100%);
+    visibility: hidden;
+    transition: all 0.3s ease;
+    background: var(--red);
+    z-index: 1000;
+    flex-direction: column;
+    box-sizing: border-box;
+    /* Важно для корректного расчета размеров */
+}
+
+@media(max-width: 465px) {
+    .menu-list {
+        height: 80vh;
+        padding-top: 40px;
+    }
+}
+
+@media(min-width: 1024px) {
+    .menu-list {
+        height: 100vh;
+        padding-top: 50px;
+    }
+}
+
+@media(min-width: 768px) {
+    .menu-list {
+        height: 90vh;
+        padding-top: 40px;
+    }
+}
+
+.menu-item {
+    display: block;
+    padding: 12px 24px;
+    color: var(--red);
+    background: var(--cream);
+    font-size: var(--font-size-lg);
+    transition: color 0.3s ease, background-color 0.3s ease;
+    margin: 20px auto;
+    width: 400px;
+    text-align: center;
+
+}
+
+.menu-item:hover {
+    color: var(--cream);
+    background-color: var(--red);
+    ;
+    border: 1px solid var(--cream);
+}
+
+.burger-checkbox:checked~.menu-list {
+    transform: translateX(0);
+    opacity: 1;
+    visibility: visible;
+}
+
+.container-nav {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.text-t {
+    color: var(--cream);
+    font-size: var(--font-size-lg);
+    font-weight: 700;
+    margin-top: 10px;
+    text-transform: uppercase;
+}
+
+.text-d {
+    color: var(--cream);
+    font-size: var(--font-size-md);
+}
+
+
+
+
+.header__container {
+    padding: 50px 0;
+    margin-top: 20px;
+    position: relative;
+    padding-bottom: clamp(5px, calc(100px + (5px - 100px) * (100vw - 420px) / (420 - 320)), 100px);
+}
+
+.text__content {
+    flex: 1;
+    max-width: 773px;
+    margin-bottom: 0;
+}
+
+.text__content h3 {
+    font-size: var(--font-size-xxl);
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+.text__content p {
+    font-size: var(--font-size-lg);
+    line-height: 1.6;
+    margin-top: 27px;
+    margin-bottom: 61px;
+    font-weight: 200;
+    max-width: clamp(300px, 60vw, 650px);
+}
+
+.text__content .accent-text {
+    color: var(--red);
+}
+
+.header__container-image {
+    position: absolute;
+    right: clamp(-300px, -20vw, -150px);
+    top: 30%;
+    transform: translateY(-50%);
+    width: clamp(450px, 55vw, 1200px);
+    height: auto;
+    z-index: -1;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.rot {
+    animation: spin 15s linear 0s infinite;
+}
+
+.header-logo {
+    text-align: center;
+    margin-bottom: 30px;
+}
