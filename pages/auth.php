@@ -8,30 +8,26 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $login = trim($_POST['login'] ?? '');
     $raw_pass = trim($_POST['pass'] ?? '');
 
-    if (empty($login) || empty($raw_pass)) {
-        $error = 'Заполните все поля';
-    } else {
-        $stmt = $conn->prepare("SELECT * FROM `users` WHERE `login` = ?");
-        $stmt->bind_param("s", $login);
-        $stmt->execute();
-        $result = $stmt->get_result();
+    $stmt = $conn->prepare("SELECT * FROM `users` WHERE `login` = ?");
+    $stmt->bind_param("s", $login);
+    $stmt->execute();
+    $result = $stmt->get_result();
 
-        if (mysqli_num_rows($result) > 0) {
-            $user = mysqli_fetch_assoc($result);
+    if (mysqli_num_rows($result) > 0) {
+        $user = mysqli_fetch_assoc($result);
 
-            if (password_verify($raw_pass, $user['pass'])) {
-                setcookie('id', $user['id'], time() + 3600, '/');
-                setcookie('login', $user['login'], time() + 3600, '/');
-                setcookie('role', $user['role'], time() + 3600, '/');
+        if (password_verify($raw_pass, $user['pass'])) {
+            setcookie('id', $user['id'], time() + 3600, '/');
+            setcookie('login', $user['login'], time() + 3600, '/');
+            setcookie('role', $user['role'], time() + 3600, '/');
 
-                header('Location: /');
-                exit();
-            } else {
-                $error = 'Неверный логин или пароль';
-            }
+            header('Location: /');
+            exit();
         } else {
             $error = 'Неверный логин или пароль';
         }
+    } else {
+        $error = 'Неверный логин или пароль';
     }
 }
 ?>
