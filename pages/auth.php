@@ -23,12 +23,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             header('Location: /');
             exit();
-        } else {
-            $error = 'Неверный логин или пароль';
         }
-    } else {
-        $error = 'Неверный логин или пароль';
     }
+
+    $error = 'Неверный логин или пароль';
 }
 ?>
 
